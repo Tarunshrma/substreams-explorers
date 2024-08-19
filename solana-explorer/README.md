@@ -251,26 +251,30 @@ params:
 ```
 
 ```bash
-substreams run -e localhost:9000 --plaintext ./substreams.yaml map_parse_journal_data --start-block 340 --stop-block +10
 
-Connected (trace ID b64019ddd0f35ba68789d96fbed52326)
+substreams run -e localhost:9000 --plaintext ./substreams.yaml map_parse_journal_data --start-block 340 --stop-block +10
+Connected (trace ID f8c01e8895b19701afe298ebd4744f3e)
 Progress messages received: 0 (0/sec)
 Backprocessing history up to requested target block 340:
 (hit 'm' to switch mode)
 
 
-
-
-
 ----------- BLOCK #340 (7TzeDrfs7Fctu6LTDKpTbmwsvK9fT4fLL5hpjzjTRM9B) ---------------
-                                                                                     ----------- BLOCK #341 (8tiNv27PgTMpX6FDusYhi3vmD44NSSUZkcrmCqYv76ze) ---------------
+----------- BLOCK #341 (8tiNv27PgTMpX6FDusYhi3vmD44NSSUZkcrmCqYv76ze) ---------------
 ----------- BLOCK #342 (798fDF44XLWAZeva9nyhSP3PXEBXmqRJnfrPsAM4NXjf) ---------------
 ----------- BLOCK #343 (FAVXe9qCss4oRdyummVgXyLB1w56ekfQmk8AduSF9AYb) ---------------
 {
   "@module": "map_parse_journal_data",
-  "@unknown": "sol.transactions.journal.v1",
-  "@str": "\"\\n^\\x12\\x13first jaounel entry\\x1aGThis is my first journal entry in Solana powered journal entry program.\"",
-  "@bytes": "Cl4SE2ZpcnN0IGphb3VuZWwgZW50cnkaR1RoaXMgaXMgbXkgZmlyc3Qgam91cm5hbCBlbnRyeSBpbiBTb2xhbmEgcG93ZXJlZCBqb3VybmFsIGVudHJ5IHByb2dyYW0u"
+  "@block": 343,
+  "@type": "sol.transactions.journal.v1.Journals",
+  "@data": {
+    "journals": [
+      {
+        "title": "first jaounel entry",
+        "message": "This is my first journal entry in Solana powered journal entry program."
+      }
+    ]
+  }
 }
 
 ----------- BLOCK #344 (4ZryextvN9L1UGXdSLVzpYNMymdrh8w1igdNe5snSzDM) ---------------
@@ -281,4 +285,5 @@ Backprocessing history up to requested target block 340:
 ----------- BLOCK #349 (DQBY1WP9d8deCDzXRvyqnXZukmfJ5ys8h2EGGiWu1XCn) ---------------
 Total Read Bytes (server-side consumption): 30418
 all done
+
 ```

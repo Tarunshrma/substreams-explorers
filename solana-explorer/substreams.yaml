@@ -76,7 +76,7 @@ modules:
     inputs:
       - map: map_filter_instructions
     output:
-      type: proto:sol.transactions.journal.v1
+      type: proto:sol.transactions.journal.v1.Journals
     doc: |
       `map_parse_journal_data` allows you to parse the raw data into json value.
 
