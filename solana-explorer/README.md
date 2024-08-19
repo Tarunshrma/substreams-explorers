@@ -239,3 +239,46 @@ Backprocessing history up to requested target block 153000028:
 ----------- BLOCK #153,000,029 (3LBYvzhWfdtcAwuCvoBzTCkUbpVbckyBFAcJezdScGhP) ---------------
 all done
 ```
+
+### Running the "map_parse_journal_data" Module
+
+To run this module, you must provide a custom program id value in the parameters in your substreams.yaml manifest.
+
+
+```yaml
+params:
+  map_filter_transactions: program_id=htemKhSvvj1nKGkReHzwB42fty16B9TuR3JhFk73scQ
+```
+
+```bash
+substreams run -e localhost:9000 --plaintext ./substreams.yaml map_parse_journal_data --start-block 340 --stop-block +10
+
+Connected (trace ID b64019ddd0f35ba68789d96fbed52326)
+Progress messages received: 0 (0/sec)
+Backprocessing history up to requested target block 340:
+(hit 'm' to switch mode)
+
+
+
+
+
+----------- BLOCK #340 (7TzeDrfs7Fctu6LTDKpTbmwsvK9fT4fLL5hpjzjTRM9B) ---------------
+                                                                                     ----------- BLOCK #341 (8tiNv27PgTMpX6FDusYhi3vmD44NSSUZkcrmCqYv76ze) ---------------
+----------- BLOCK #342 (798fDF44XLWAZeva9nyhSP3PXEBXmqRJnfrPsAM4NXjf) ---------------
+----------- BLOCK #343 (FAVXe9qCss4oRdyummVgXyLB1w56ekfQmk8AduSF9AYb) ---------------
+{
+  "@module": "map_parse_journal_data",
+  "@unknown": "sol.transactions.journal.v1",
+  "@str": "\"\\n^\\x12\\x13first jaounel entry\\x1aGThis is my first journal entry in Solana powered journal entry program.\"",
+  "@bytes": "Cl4SE2ZpcnN0IGphb3VuZWwgZW50cnkaR1RoaXMgaXMgbXkgZmlyc3Qgam91cm5hbCBlbnRyeSBpbiBTb2xhbmEgcG93ZXJlZCBqb3VybmFsIGVudHJ5IHByb2dyYW0u"
+}
+
+----------- BLOCK #344 (4ZryextvN9L1UGXdSLVzpYNMymdrh8w1igdNe5snSzDM) ---------------
+----------- BLOCK #345 (9CFQKhL5YFZPFzX94iZJaUM9E7aKXDaCpsypc7G82snE) ---------------
+----------- BLOCK #346 (HKDWZrjCk4gRQ9TwPTyE3n64hohn3NL1P5qWpaFnwvHj) ---------------
+----------- BLOCK #347 (6RC6c4wr5vtUzWmT3QNEuiBxESthj5QG8U3aKr8iTDQr) ---------------
+----------- BLOCK #348 (GpUFttoJM1heyBDNP9hT2BDKiZU2L7ZEKvrfqvmaPSpp) ---------------
+----------- BLOCK #349 (DQBY1WP9d8deCDzXRvyqnXZukmfJ5ys8h2EGGiWu1XCn) ---------------
+Total Read Bytes (server-side consumption): 30418
+all done
+```

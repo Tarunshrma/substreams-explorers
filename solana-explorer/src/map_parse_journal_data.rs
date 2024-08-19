@@ -4,7 +4,7 @@ use crate::pb::sol::transactions::{journal::v1::{JournalEntry, Journals}, v1::In
 use std::error::Error;
 
 #[substreams::handlers::map]
-fn map_parse_instruction_data(insts: Instructions) -> Result<Journals, substreams::errors::Error> {
+fn map_parse_journal_data(insts: Instructions) -> Result<Journals, substreams::errors::Error> {
     let transaction_data: Vec<JournalEntry> = insts.instructions.iter()
         .map(|inst| {
             // Assuming inst.data contains the Base58 encoded string
@@ -34,13 +34,13 @@ fn map_parse_instruction_data(insts: Instructions) -> Result<Journals, substream
 
 fn decode_and_parse_to_protobuf(data: Vec<u8>) -> Result<JournalEntry, Box<dyn Error>> {
 
-    substreams::log::info!("raw data: {:?}", data);
+    //substreams::log::info!("raw data: {:?}", data);
 
 
     // let decoded_bytes = Vec::from_hex(&data[8..])?;
     let skipped_bytes = &data[8..];
 
-    substreams::log::info!("Skipped bytes: {:?}", skipped_bytes);
+    //substreams::log::info!("Skipped bytes: {:?}", skipped_bytes);
 
     // Step 2: Deserialize the byte array into the Protobuf structure
     //let message = TransactionData::decode(&*bytes_to_parse)?;
@@ -70,7 +70,7 @@ fn decode_and_parse_to_protobuf(data: Vec<u8>) -> Result<JournalEntry, Box<dyn E
     let title = read_length_prefixed_string(&mut dt)?;
     let msg: String = read_length_prefixed_string(&mut dt)?;
 
-    substreams::log::info!("Parsed title and message : {:?} {:?}", title ,msg);
+    //substreams::log::info!("Parsed title and message : {:?} {:?}", title ,msg);
 
 
     //let message = TransactionData::decode(&*skipped_bytes)?;
@@ -79,7 +79,7 @@ fn decode_and_parse_to_protobuf(data: Vec<u8>) -> Result<JournalEntry, Box<dyn E
         message: msg,
     };
 
-    substreams::log::info!("Parsed message : {:?}", message);
+    //substreams::log::info!("Parsed message : {:?}", message);
 
     Ok(message)
 }

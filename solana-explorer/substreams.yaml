@@ -71,6 +71,16 @@ modules:
     doc: |
       `map_filter_transaction` allows you to find a transaction by hash. You need to scope your search to the blocks you know you are going to find that transaction. Check with your preferred block explorer first.
 
+  - name: map_parse_journal_data
+    kind: map
+    inputs:
+      - map: map_filter_instructions
+    output:
+      type: proto:sol.transactions.journal.v1
+    doc: |
+      `map_parse_journal_data` allows you to parse the raw data into json value.
+
+
 params:
-  map_filter_instructions: "program_id=Stake11111111111111111111111111111111111111"
+  map_filter_instructions: "program_id=htemKhSvvj1nKGkReHzwB42fty16B9TuR3JhFk73scQ"
   map_filter_transactions: "signature=21ED2HBGuLUwgbaBb77cGwFR8MkVQfjR9KszzCb7jZkeSysJkHAVew6RaaBh3r1zTefpdq9Kf5geFp19P3nUXB3t"
