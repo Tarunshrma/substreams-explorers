@@ -11,6 +11,6 @@ pub struct JournalEntry {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Journals {
     #[prost(message, repeated, tag="1")]
-    pub journal: ::prost::alloc::vec::Vec<JournalEntry>,
+    pub journals: ::prost::alloc::vec::Vec<JournalEntry>,
 }
 // @@protoc_insertion_point(module)

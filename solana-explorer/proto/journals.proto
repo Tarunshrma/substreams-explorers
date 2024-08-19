@@ -8,6 +8,6 @@ message JournalEntry {
 }
 
 message Journals {
-  repeated JournalEntry journal = 1;
+  repeated JournalEntry journals = 1;
 }
 
