@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sol.transactions.data.v1;
+package sol.transactions.journal.v1;
 
 message JournalEntry {
   string title = 2;

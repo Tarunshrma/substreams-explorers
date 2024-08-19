@@ -31,7 +31,7 @@ fn map_filter_transactions(params: String, blk: Block) -> Result<Transactions, V
                         .iter()
                         .map(|acct| bs58::encode(acct_keys[*acct as usize].to_vec()).into_string())
                         .collect(),
-                    data: bs58::encode(&inst.data).into_string(),
+                    data: inst.data.clone(),////bs58::encode(&inst.data).into_string(),
                 })
                 .collect();
 
