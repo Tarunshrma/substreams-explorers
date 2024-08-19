@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sol.transactions.data.v1;
+
+message JournalEntry {
+  string title = 2;
+  string message = 3;
+}
+
+message Journals {
+  repeated JournalEntry journal = 1;
+}
+

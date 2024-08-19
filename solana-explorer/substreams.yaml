@@ -16,6 +16,7 @@ protobuf:
   files:
     - block.proto
     - transactions.proto
+    - journals.proto
   importPaths:
     - ./proto
 
