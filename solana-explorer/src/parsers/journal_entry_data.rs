@@ -4,7 +4,7 @@ use crate::{pb::sol::transactions::journal::v1::JournalEntry, utils::constants::
 use super::decode_data::DecodeData;
 
 impl DecodeData for JournalEntry {
-    fn parse_from_data(data: &[u8]) -> Result<Self, Box<dyn Error>> {
+    fn parse_from_data(data: &[u8], hash_of_accounts:String) -> Result<Self, Box<dyn Error>> {
         // Skip the first 8 bytes
         let skipped_bytes = &data[DISCRIMINATOR..];
 
@@ -31,6 +31,8 @@ impl DecodeData for JournalEntry {
         let title = read_length_prefixed_string(&mut dt)?;
         let msg = read_length_prefixed_string(&mut dt)?;
 
-        Ok(JournalEntry { title, message: msg })
+        let id = format!("{}-{}", title, hash_of_accounts);
+
+        Ok(JournalEntry { id,  title, message: msg })
     }
 }
